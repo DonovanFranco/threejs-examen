@@ -13,13 +13,13 @@ const params = {
 
 // Lista de activos disponibles
 const assets = [
-    'Offensive Idle',                 // golpe
-    'Reaction',                 // patada
-    'Roundhouse Kick',                    // provocacion   
-    'Walking',                 // derrotado
-    'Dancing Twerk', // caminar      
-    'Fast Run', // correr
-    'Punching Bag'              // saltar
+    'Offensive Idle',          
+    'Reaction',                
+    'Roundhouse Kick',           
+    'Walking',                 
+    'Dancing Twerk',       
+    'Fast Run', 
+    'Punching Bag'              
 ];
 
 init();

@@ -150,6 +150,14 @@ function loadAsset(asset) {
 // Function to handle keydown events
 function onKeyDown(event) {
     const moveDistance = 10; // Distance to move each time a key is pressed
+    const direction = new THREE.Vector3();
+    const sideDirection = new THREE.Vector3();
+    
+    if (object) {
+        object.getWorldDirection(direction);
+        direction.normalize();
+        sideDirection.crossVectors(direction, new THREE.Vector3(0, 1, 0)).normalize();
+    }
 
     switch (event.keyCode) {
         case 49: // Key 1
@@ -175,16 +183,22 @@ function onKeyDown(event) {
             break;
         case 87: // Key W
             if (object) {
-                const direction = new THREE.Vector3();
-                object.getWorldDirection(direction);
-                object.position.addScaledVector(direction, moveDistance);
+                object.position.addScaledVector(direction, moveDistance); // Move forward
             }
             break;
         case 83: // Key S
             if (object) {
-                const direction = new THREE.Vector3();
-                object.getWorldDirection(direction);
-                object.position.addScaledVector(direction, -moveDistance);
+                object.position.addScaledVector(direction, -moveDistance); // Move backward
+            }
+            break;
+        case 65: // Key A
+            if (object) {
+                object.position.addScaledVector(sideDirection, -moveDistance); // Move left
+            }
+            break;
+        case 68: // Key D
+            if (object) {
+                object.position.addScaledVector(sideDirection, moveDistance); // Move right
             }
             break;
     }

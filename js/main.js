@@ -137,6 +137,7 @@ function loadAsset(asset) {
             if (child.isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
+                child.material = new THREE.MeshPhongMaterial();
             }
         });
 

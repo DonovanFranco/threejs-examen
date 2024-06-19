@@ -8,7 +8,7 @@ const clock = new THREE.Clock();
 
 // Parámetros para la interfaz gráfica
 const params = {
-    asset: 'Offensive Idle'
+    asset: 'Dancing Twerk'
 };
 
 // Lista de activos disponibles

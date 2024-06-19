@@ -149,6 +149,8 @@ function loadAsset(asset) {
 
 // Function to handle keydown events
 function onKeyDown(event) {
+    const moveDistance = 10; // Distance to move each time a key is pressed
+
     switch (event.keyCode) {
         case 49: // Key 1
             loadAsset('Offensive Idle');
@@ -170,6 +172,20 @@ function onKeyDown(event) {
             break;
         case 55: // Key 7
             loadAsset('Punching Bag');
+            break;
+        case 87: // Key W
+            if (object) {
+                const direction = new THREE.Vector3();
+                object.getWorldDirection(direction);
+                object.position.addScaledVector(direction, moveDistance);
+            }
+            break;
+        case 83: // Key S
+            if (object) {
+                const direction = new THREE.Vector3();
+                object.getWorldDirection(direction);
+                object.position.addScaledVector(direction, -moveDistance);
+            }
             break;
     }
 }
